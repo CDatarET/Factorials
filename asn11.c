@@ -21,13 +21,41 @@ int main(){
 	}
 	else{
 		long fac = 1;
-		for(int i = 1; i <= a; i++){
-			fac = fac * i;
+		
+		char rn;
+		printf("enter r for recursion or enter n for no recursion\n");
+		scanf(" %c", &rn);
+		
+		if(rn == 'r'){
+			printf("%d! is %li (recursion) \n", a, factorial(a));
+			
+			printf("try again? y/n\n");
+			char yn;
+			scanf(" %c", &yn);
+	
+			if(yn == 'y'){
+				main();
+			}
 		}
-		printf("%d! is %li (no recursion)\n", a, fac);
+		else if(rn == 'n'){
+			for(int i = 1; i <= a; i++){
+				fac = fac * i;
+			}
+			printf("%d! is %li (no recursion)\n", a, fac);
+			
+			printf("try again? y/n\n");
+			char yn;
+			scanf(" %c", &yn);
 	
-		printf("%d! is %li (recursion) \n", a, factorial(a));
+			if(yn == 'y'){
+				main();
+			}
+		}
+		else{
+			printf("invalid answer\n");
+			main();
+		}
+	
 	}
-	
 	return 0;
 }
